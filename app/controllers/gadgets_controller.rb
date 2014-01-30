@@ -13,7 +13,7 @@ class GadgetsController < ApplicationController
 
     respond_to do |format|
       if @gadget.save
-        format.html { redirect_to @gadget, notice: 'Gadget was successfully created.' }
+        format.html { redirect_to gadgets_path, notice: 'Gadget was successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -23,6 +23,6 @@ class GadgetsController < ApplicationController
   private
 
   def gadget_params
-    params.require(:gadget).permit(:name, :text)
+    params.require(:gadget).permit(:name, :description)
   end
 end
