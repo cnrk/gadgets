@@ -37,11 +37,17 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <% [:notice, :error, :alert].each do |level| %>
+    <% unless flash[level].blank? %>
+      <div class="alert alert-<%= flash_class(level) %> alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= flash[level] %>
+      </div>
+    <% end %>
+  <% end %>
   <% if current_user %>
     <%= link_to 'Add a new Gadget', new_gadget_path %>
   <% end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <%= yield %>
 </body>
 </html>
