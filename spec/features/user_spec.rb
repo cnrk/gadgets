@@ -46,11 +46,7 @@ feature 'User Account' do
 
   context "user is logged in" do
     before do
-      visit('/')
-      click_link('login')
-      fill_in('user_email', with: user.email)
-      fill_in('user_password', with: user.password)
-      click_button('Sign in')
+      sign_in(user)
     end
 
     scenario "user logs out" do
