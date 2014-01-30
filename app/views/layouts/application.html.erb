@@ -25,7 +25,9 @@
           </p>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "sign up", new_user_registration_path %> </li>
+          <% unless current_user %>
+            <li><%= link_to "sign up", new_user_registration_path %> </li>
+          <% end %>
           <li>
           <% if current_user %>
             <li><%= link_to "logout", destroy_user_session_path, method: 'delete'  %> </li>
