@@ -1,5 +1,7 @@
 class GadgetsController < ApplicationController
 
+  before_action :check_current_user
+
   def index
     @gadgets = Gadget.search(params[:search], current_user.id)
   end
@@ -22,6 +24,14 @@ class GadgetsController < ApplicationController
   end
 
   private
+
+  def check_current_user
+    unless current_user
+      redirect_to root_path, notice: 'Please log in.'
+      return
+    end
+  end
+
 
   def gadget_params
     params.require(:gadget).permit(:name, :description)
