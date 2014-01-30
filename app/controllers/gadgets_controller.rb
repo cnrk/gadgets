@@ -1,7 +1,7 @@
 class GadgetsController < ApplicationController
 
   def index
-    @gadgets = Gadget.all
+    @gadgets = Gadget.where(user_id: current_user.id)
   end
 
   def new
@@ -10,6 +10,7 @@ class GadgetsController < ApplicationController
 
   def create
     @gadget = Gadget.new(gadget_params)
+    @gadget.user = current_user
 
     respond_to do |format|
       if @gadget.save
