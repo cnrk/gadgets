@@ -2,6 +2,7 @@ class Gadget < ActiveRecord::Base
   validates :name, presence: true
 
   belongs_to :user
+  has_many :images
 
   def self.search(search, user_id)
     if search
