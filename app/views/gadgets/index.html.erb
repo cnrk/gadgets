@@ -1,6 +1,7 @@
 <h2>Your gadget collection</h2>
-
-
+<% if current_user %>
+  <%= link_to 'Add a new Gadget', new_gadget_path %>
+<% end %>
 <% @gadgets.each do |gadget| %>
   <h3><%=gadget.name %></h3>
   <p><%= gadget.description %><p>
