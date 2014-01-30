@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'devise', '3.2.2'
+gem 'carrierwave', '~> 0.9.0'
+gem 'mini_magick', '~> 3.5.0'
 
 
 gem 'mysql2', '0.3.15'
