@@ -1,0 +1,8 @@
+<h2>Your gadget collection</h2>
+
+<% @gadgets.each do |gadget| %>
+  <h3><%=gadget.name %></h3>
+  <p><%= gadget.description %><p>
+<% end %>
+
+
