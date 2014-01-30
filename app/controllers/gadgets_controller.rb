@@ -1,7 +1,7 @@
 class GadgetsController < ApplicationController
 
   def index
-    @gadgets = Gadget.where(user_id: current_user.id)
+    @gadgets = Gadget.search(params[:search], current_user.id)
   end
 
   def new
