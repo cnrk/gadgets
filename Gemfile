@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'devise', '3.2.2'
 
-gem 'factory_girl_rails', '4.3.0'
 
 gem 'mysql2', '0.3.15'
 
@@ -28,6 +27,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
+  gem 'factory_girl_rails', '4.3.0'
   gem 'capybara', '2.2.0'
 end
 
