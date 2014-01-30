@@ -1,5 +1,9 @@
 Gadgets::Application.routes.draw do
-  resources :gadgets
+  resources :gadgets do
+    resources :images
+  end
+
+  resource :images
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
