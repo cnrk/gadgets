@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <h1>Welcome to Gadgets</h1>
+  <% if current_user %>
+    <p><%= link_to "Manage your gadgets", gadgets_path, class: "btn btn-primary btn-lg" %></p>
+  <% else %>
+    <p>Please log in to manage your gadgets.</p>
+  <% end %>
+</div>
