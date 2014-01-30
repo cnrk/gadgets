@@ -1,16 +1,11 @@
+<div class="btn-group">
+  <%= link_to "List (Small)", gadgets_path(view_mode: 'small'), class: "btn btn-default" %>
+  <%= link_to "List (Large)", gadgets_path(view_mode: 'large'), class: "btn btn-default" %>
+  <%= link_to "Coverflow", gadgets_path(view_mode: 'coverflow'), class: "btn btn-default" %>
+</div>
 <h2>Your gadget collection</h2>
 <% if current_user %>
   <%= link_to 'Add a new Gadget', new_gadget_path %>
 <% end %>
-<% @gadgets.each do |gadget| %>
-  <h3><%=gadget.name %></h3>
-  <p><%= gadget.description %><p>
-  <div class="panel">
-    <% gadget.images.each do |image| %>
-      <%= image_tag image.file.thumbnail %>
-    <% end %>
-  </div>
-  <%= link_to "add image", new_gadget_image_path(gadget) %>
-<% end %>
-
+<%= render(params[:view_mode] || 'small') %>
 

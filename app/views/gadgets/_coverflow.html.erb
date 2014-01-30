@@ -1,0 +1,12 @@
+<div id="player"></div>
+<script src="coverflow.js"></script>
+<script>
+  coverflow('player').setup({
+    flash: 'coverflow.swf',
+    playlist: <%= covers(@gadgets) %>,
+    width: 800,
+    height: 300,
+    backgroundcolor: '#ffffff',
+    textstyle: 'color: black'
+  });
+</script>
