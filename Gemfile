@@ -5,6 +5,7 @@ gem 'rails', '4.0.2'
 gem 'devise', '3.2.2'
 gem 'carrierwave', '~> 0.9.0'
 gem 'mini_magick', '~> 3.5.0'
+gem 'jquery-fileupload-rails', '~> 0.4.1'
 
 
 gem 'mysql2', '0.3.15'
