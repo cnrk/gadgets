@@ -5,7 +5,12 @@
 <% @gadgets.each do |gadget| %>
   <h3><%=gadget.name %></h3>
   <p><%= gadget.description %><p>
-  <%= link_to "add images", new_gadget_image_path(gadget) %>
+  <div class="panel">
+    <% gadget.images.each do |image| %>
+      <%= image_tag image.file.thumbnail %>
+    <% end %>
+  </div>
+  <%= link_to "add image", new_gadget_image_path(gadget) %>
 <% end %>
 
 
