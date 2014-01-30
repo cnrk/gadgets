@@ -1,40 +1,50 @@
 require 'spec_helper'
 
-feature 'Gadget Manager' do
+feature 'Gadget Management' do
+  let(:user) { create(:user) }
+  let(:other_user) { create(:user, email: 'admin2@example.com') }
+
   before do
-    # login
-    visit('/')
-    click_link('login')
-    fill_in('user_email', with: 'admin@example.com')
-    fill_in('user_password', with: 'password')
+    create(:gadget, name: 'gadget1', user: user)
+    create(:gadget, name: 'gadget2', user: user)
+    create(:gadget, name: 'other gadget', user: other_user)
   end
 
-  scenario "user browses list of gadgets" do
-    pending
-    visit('/')
-    expect(page).to have_selector('h3', text: 'Gadget 1')
+  context 'user is signed in' do
+
+    before do
+      sign_in(user)
+    end
+
+    scenario 'user browses list of own gadgets' do
+      expect(page).to have_content('gadget1')
+      expect(page).to have_content('gadget2')
+    end
+
+    scenario 'user cannot see gadgets of other users' do
+      expect(page).not_to have_content('other gadget')
+    end
+
+    scenario 'user browses cover flow of gadgets' do
+      pending
+    end
+
+    scenario 'user adds a gadget' do
+      click_link('Add a new Gadget')
+      fill_in('Name', with: 'my new gadget')
+      fill_in('Description', with: 'my new gadget description')
+      click_button('Submit')
+    end
+
   end
 
-  scenario "user browses cover flow of gadgets" do
-    pending
-    visit('/')
-  end
+  context 'user is not signed in' do
 
-  scenario "user clicks a gadget to see detail page" do
-    pending
-    visit('/')
-    click_link('details')
-    expect(page).to have_selector('h3', text: 'Gadget 1')
-  end
+    scenario 'user is not allowed to browse gadgets' do
+      visit(gadgets_path)
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Please log in.')
+    end
 
-  scenario "user adds a gadget" do
-    pending
-    visit('/')
-    click_link('add gadget')
   end
-
-  scenario "user adds an image to a gadget" do
-    pending
-  end
-
 end
