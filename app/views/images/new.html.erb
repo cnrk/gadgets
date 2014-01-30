@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Images</h2>
+  <p> Add an image for gadget <%= @gadget.name %></p>
+  <%= form_for @image, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+    <%= f.hidden_field :gadget_id, value: @gadget.id %>
+    <span class="btn btn-success fileinput-button">
+      <i class="icon-plus icon-white"></i>
+      <%= f.file_field :file %>
+    </span>
+    <button type="submit" class="btn btn-primary start">
+      <i class="icon-upload icon-white"></i>
+      <span>Start upload</span>
+    </button>
+  <% end %>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+var fileUploadErrors = {
+maxFileSize: 'File is too big',
+             minFileSize: 'File is too small',
+             acceptFileTypes: 'Filetype not allowed',
+             maxNumberOfFiles: 'Max number of files exceeded',
+             uploadedBytes: 'Uploaded bytes exceed file size',
+             emptyResult: 'Empty file upload result'
+};
+
+$(function () {
+    // Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload();
+    //
+    // Load existing files:
+    $.getJSON($('#fileupload').prop('action'), function (files) {
+      var fu = $('#fileupload').data('blueimpFileupload'),
+      template;
+      fu._adjustMaxNumberOfFiles(-files.length);
+      console.log(files);
+      template = fu._renderDownload(files)
+      .appendTo($('#fileupload .files'));
+      // Force reflow:
+      fu._reflow = fu._transition && template.length &&
+      template[0].offsetWidth;
+      template.addClass('in');
+      $('#loading').remove();
+      });
+
+    });
+</script>
+
