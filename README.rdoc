@@ -1,10 +1,20 @@
 == Gadgets
 
-A Rails application to manage electronic gadgets.
+# A small Rails demo application to manage electronic gadgets.
 
-A user can
+- Add gadgets to a private collection (with name and a description).
+- Add multiple images to each gadget.
+- Search for gadgets by name.
+- View gadgets in three modes: large image list, small image list  and cover flow mode.
+- Users can create their own user account.
 
-- Add gadgets to a collection
-- Add images
-- View gadgets in list an cover flow mode
-- Search for gadgets.
+![Screenshot](screenshot.png)
+
+# Technologies
+
+- Rails 4
+- Devise 3
+- Carrierwave
+- jQuery Uploader
+- Twitter Bootstrap 3
+
