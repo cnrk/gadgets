@@ -25,10 +25,6 @@ feature 'Gadget Management' do
       expect(page).not_to have_content('other gadget')
     end
 
-    scenario 'user browses cover flow of gadgets' do
-      pending
-    end
-
     scenario 'user adds a gadget' do
       click_link('Add a new Gadget')
       fill_in('Name', with: 'my new gadget')
