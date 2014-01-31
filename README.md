@@ -17,4 +17,9 @@ Based on:
 - Carrierwave
 - jQuery Uploader
 - Twitter Bootstrap 3
+- JS Coverflow http://luwes.co/labs/js-cover-flow/
+
+## TODO
+
+- Specs for image upload and view modes
 
