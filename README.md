@@ -1,6 +1,6 @@
-== Gadgets
+# Gadgets
 
-# A small Rails demo application to manage electronic gadgets.
+## A small Rails demo application to manage electronic gadgets.
 
 - Add gadgets to a private collection (with name and a description).
 - Add multiple images to each gadget.
@@ -8,9 +8,9 @@
 - View gadgets in three modes: large image list, small image list  and cover flow mode.
 - Users can create their own user account.
 
-![Screenshot](screenshot.png)
+![screenshot](https://github.com/cnrk/gadgets/raw/master/screenshot.png)
 
-# Technologies
+Based on:
 
 - Rails 4
 - Devise 3
