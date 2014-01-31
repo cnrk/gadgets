@@ -14,12 +14,10 @@ class GadgetsController < ApplicationController
     @gadget = Gadget.new(gadget_params)
     @gadget.user = current_user
 
-    respond_to do |format|
-      if @gadget.save
-        format.html { redirect_to gadgets_path, notice: 'Gadget was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @gadget.save
+      redirect_to gadgets_path, notice: 'Gadget was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
